@@ -1,9 +1,9 @@
 {
-  "id": "demo-external",
+  "id": "demo-static-html",
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "cwurbs/demo:0.0.3",
+      "image": "cwurbs/demo-static-html:0.0.1",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -32,6 +32,6 @@
   "labels": {
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_VHOST": "138.68.89.84",
-    "HAPROXY_0_PATH": "/demo"
+    "HAPROXY_0_PATH": "/demo-static-html"
   }
 }
