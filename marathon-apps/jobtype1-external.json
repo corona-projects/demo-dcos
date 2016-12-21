@@ -1,15 +1,20 @@
 {
-  "id": "jobtype1-external",
+  "id": "demo-jobtype1",
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "cwurbs/jobtype1:0.0.4",
+      "image": "cwurbs/demo-jobtype1:0.0.1",
       "network": "BRIDGE",
       "portMappings": [
         {
           "hostPort": 0,
           "containerPort": 80,
-          "servicePort": 10000
+          "servicePort": 10002
+        },
+        {
+          "hostPort": 0,
+          "containerPort": 8081,
+          "servicePort": 10003
         }
       ],
       "forcePullImage": true
@@ -17,11 +22,12 @@
   },
   "instances": 1,
   "cpus": 0.1,
-  "mem": 65,
+  "mem": 512,
+  "disk":100,
   "healthChecks": [
     {
       "protocol": "HTTP",
-      "path": "/",
+      "path": "/jobtype1/estimate?name=1",
       "portIndex": 0,
       "timeoutSeconds": 10,
       "gracePeriodSeconds": 10,
@@ -32,6 +38,6 @@
   "labels": {
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_VHOST": "138.68.89.84",
-    "HAPROXY_0_PATH": "/jobtype1"
+    "HAPROXY_0_PATH": "/jobtype1/"
   }
 }

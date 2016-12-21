@@ -1,9 +1,9 @@
 {
-  "id": "demo-static-html",
+  "id": "demo-static-html-green",
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "cwurbs/demo-static-html:0.0.1",
+      "image": "cwurbs/demo-static-html:0.0.2",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -21,7 +21,7 @@
   "healthChecks": [
     {
       "protocol": "HTTP",
-      "path": "/",
+      "path": "/demo-static-html",
       "portIndex": 0,
       "timeoutSeconds": 10,
       "gracePeriodSeconds": 10,
